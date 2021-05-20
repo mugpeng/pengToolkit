@@ -1,0 +1,16 @@
+Package: pengToolkit
+Title: Some useful functions developed by that man.
+Version: 0.2
+Authors@R: "Mug Peng <mugpeng@foxmail.com> [aut, cre]"
+Description: Some useful functions developed by that man.
+Depends: R (>= 3.1.1)
+License: GPL-2
+Encoding: UTF-8
+LazyData: false
+Date: 2021-05-19
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+NeedsCompilation: no
+Packaged: 2021-05-19 14:54:21 UTC; lenovo
+Author: "Mug Peng" [aut, cre]
+Maintainer: "Mug Peng" <mugpeng@foxmail.com>
