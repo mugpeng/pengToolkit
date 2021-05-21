@@ -16,10 +16,13 @@
 #' @examples
 #' make_r_template()
 #' make_r_template(project = "How to Fire My Boss.", filename = "01-preparation.R", author = "Tony", dir = getwd())
-make_r_template <- function(project = "Rescue the Princess", filename = "file.R", author = "Peng", dir = getwd())
+make_r_template <- function(
+  filename = "file.R", project = "Rescue the Princess", 
+  author = "Peng", dir = getwd())
 {
   if (file.exists(file.path(dir, filename))) invisible(NULL)
   else{
+    if (!grepl(".R$", filename)) filename <- paste0(filename, ".R")
     write(c("##################################################",
             paste0("## Project: ", project),
             paste0("## File name: ", filename),
