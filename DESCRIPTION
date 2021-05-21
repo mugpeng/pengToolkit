@@ -1,6 +1,6 @@
 Package: pengToolkit
 Title: Some useful functions developed by that man.
-Version: 0.2
+Version: 0.0.2
 Authors@R: "Mug Peng <mugpeng@foxmail.com> [aut, cre]"
 Description: Some useful functions developed by that man.
 Depends: R (>= 3.1.1)
@@ -14,3 +14,11 @@ NeedsCompilation: no
 Packaged: 2021-05-19 14:54:21 UTC; lenovo
 Author: "Mug Peng" [aut, cre]
 Maintainer: "Mug Peng" <mugpeng@foxmail.com>
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    BiocManager
+
+URL: http://yuque.mugpeng.live/
+BugReports: https://github.com/mugpeng/pengToolkit/issues

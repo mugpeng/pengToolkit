@@ -1,6 +1,7 @@
 # pengToolkit
  My useful R package.
 
+## 功能介绍
 一共三个函数：
 
 ```
@@ -34,4 +35,15 @@ pengToolkit::boost_install_packages(c("ggplot2", "devtools"))
 ```
 set_mirror() # 参数"China" 可有可无
 set_mirror("reset") # 当你无需镜像之时，可以恢复默认设置
+```
+
+## 安装
+境内用户，可以用下面的链接：
+```
+#安装官方包‘remotes’
+install.packages("remotes")
+#安装官方包‘git2r’
+install.packages("git2r")
+
+remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
 ```
