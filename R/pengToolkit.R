@@ -1,6 +1,6 @@
 #' This is some description of this function.
 #' @title A head comment template auto-generator
-#' 
+#'
 #' @description today,I create my first function,a very usrful function.
 #'
 #' @details you can use this function to create your header in the script.
@@ -13,7 +13,7 @@
 #' @return file a new file with designed header
 #' @keywords make_r_template
 #' @export
-#' @examples 
+#' @examples
 #' make_r_template()
 #' make_r_template(project = "How to Fire My Boss.", filename = "01-preparation.R", author = "Tony", dir = getwd())
 make_r_template <- function(project = "Rescue the Princess", filename = "file.R", author = "Peng", dir = getwd())
@@ -35,19 +35,19 @@ make_r_template <- function(project = "Rescue the Princess", filename = "file.R"
 
 #' This is some description of this function.
 #' @title set-up mirror in China
-#' 
+#'
 #' @description today,I create my second function,a very usrful function.
 #'
 #' @details you can use this function to change ur cran&&bioconductor mirrors if you are in China.
 #'
 #' @param loc input "China" means change mirror
 #' @param loc input "recover" means
-#' 
+#'
 #'
 #' @return nothing but love
 #' @keywords set_mirror
 #' @export
-#' @examples 
+#' @examples
 #' set_mirror()
 #' set_mirror("China")
 set_mirror <- function(loc = "China") {
@@ -55,7 +55,7 @@ set_mirror <- function(loc = "China") {
     # clean previous mirror
     options( BioC_mirror = NULL )
     options( repos = NULL )
-    
+
     r <- getOption( "repos" );# set CRAN mirror for users in China
     r[ "CRAN" ] <- "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"; # mirror address of cran
     # r <- r[-which(names(r) == "CRANextra")]
@@ -75,7 +75,7 @@ set_mirror <- function(loc = "China") {
 
 #' This is some description of this function.
 #' @title receive a vector of packages and install them from cran or bioconductor
-#' 
+#'
 #' @description today,I create my third function,a very usrful function.
 #'
 #' @details you can use this function to download a batch of uninstalled packages from CRAN or bioconductor with judment if exists.
@@ -85,7 +85,7 @@ set_mirror <- function(loc = "China") {
 #' @return information about what did the function do
 #' @keywords boost_install_packages
 #' @export
-#' @examples 
+#' @examples
 #' boost_install_packages(c("devtools", "roxygen2", "testthat"))
 #' boost_install_packages(my_packages = c("devtools", "roxygen2", "testthat"))
 boost_install_packages <- function(my_packages = my_packages) {
@@ -103,5 +103,5 @@ boost_install_packages <- function(my_packages = my_packages) {
       print(paste0(my_packages, " is already installed."))
     }
   })
-  print(paste0(paste(my_packages, collapse=" "), " are already in your computer."))
+  print(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
 }
