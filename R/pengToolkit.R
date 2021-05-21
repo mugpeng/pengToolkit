@@ -41,7 +41,7 @@ make_r_template <- function(project = "Rescue the Princess", filename = "file.R"
 #' @details you can use this function to change ur cran&&bioconductor mirrors if you are in China.
 #'
 #' @param loc input "China" means change mirror
-#' @param loc input "recover" means
+#' @param loc input "recover" means drop the mirror
 #'
 #'
 #' @return nothing but love
@@ -63,13 +63,13 @@ set_mirror <- function(loc = "China") {
     BioC <- getOption( "BioC_mirror" ); # set bioconductor mirror for users in China
     BioC[ "BioC_mirror" ] <- "https://mirrors.ustc.edu.cn/bioc/"; # mirror address of bioconductor
     options( BioC_mirror = BioC )
-    print("Now you successfully take a ladder, go ahead without restriction!")
+    print("Now you successfully take a ladder, go ahead without any restrictions!")
   } else if (loc == "reset") {
     options( BioC_mirror = NULL )
     options( repos = NULL )
     print("You dropped the ladder~")
   } else {
-    print("Don't support other regions yet.Sorry!")
+    print("Don't support other regions yet. Sorry!")
   }
 }
 

@@ -7,7 +7,7 @@
 set_mirror(loc = "China")
 }
 \arguments{
-\item{loc}{input "China" or not}
+\item{loc}{input "recover" means drop the mirror}
 }
 \value{
 nothing but love
