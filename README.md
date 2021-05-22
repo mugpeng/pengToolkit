@@ -47,3 +47,66 @@ install.packages("git2r")
 
 remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
 ```
+
+# 更新记录
+gitte 地址：https://github.com/mugpeng/pengToolkit
+
+## 0.0.1
+初始版。
+
+## 0.0.2
+发布版。
+
+set_mirror 函数添加恢复方法：
+```
+set_mirror("reset") # 当你无需镜像之时，可以恢复默认设置
+```
+## 0.0.3
+对帮助文档进行了修改。
+添加了依赖包设置。
+添加了单元测试设置。
+
+## 0.0.4
+灵感来源于pacman::p_load()，如果可以安装包时增加选项，loaded, 如果为T，则判断式安装完包后，会加载它们。
+```
+> boost_install_packages(c("ggpubr", "stringr", "ggdark"), loaded = T)
+[1] "ggpubr is already installed."
+[1] "stringr is already installed."
+[1] "ggdark is already installed."
+[1] "ggpubr, stringr, ggdark are already in your computer."
+
+Attaching package: ‘stringr’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    words
+
+$ggpubr
+ [1] "ggpubr"        "ggplot2"       "wordcloud2"    "readr"        
+ [5] "janeaustenr"   "dplyr"         "tidytext"      "jiebaR"       
+ [9] "jiebaRD"       "rvest"         "RevoUtils"     "stats"        
+[13] "graphics"      "grDevices"     "utils"         "datasets"     
+[17] "pengToolkit"   "conflicted"    "RevoUtilsMath" "methods"      
+[21] "base"         
+
+$stringr
+ [1] "stringr"       "ggpubr"        "ggplot2"       "wordcloud2"   
+ [5] "readr"         "janeaustenr"   "dplyr"         "tidytext"     
+ [9] "jiebaR"        "jiebaRD"       "rvest"         "RevoUtils"    
+[13] "stats"         "graphics"      "grDevices"     "utils"        
+[17] "datasets"      "pengToolkit"   "conflicted"    "RevoUtilsMath"
+[21] "methods"       "base"         
+
+$ggdark
+ [1] "ggdark"        "stringr"       "ggpubr"        "ggplot2"      
+ [5] "wordcloud2"    "readr"         "janeaustenr"   "dplyr"        
+ [9] "tidytext"      "jiebaR"        "jiebaRD"       "rvest"        
+[13] "RevoUtils"     "stats"         "graphics"      "grDevices"    
+[17] "utils"         "datasets"      "pengToolkit"   "conflicted"   
+[21] "RevoUtilsMath" "methods"       "base"         
+
+Warning messages:
+1: package ‘ggpubr’ was built under R version 4.0.5 
+2: package ‘stringr’ was built under R version 4.0.5 
+3: package ‘ggdark’ was built under R version 4.0.5 
+```

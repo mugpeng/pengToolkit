@@ -91,7 +91,7 @@ set_mirror <- function(loc = "China") {
 #' @examples
 #' boost_install_packages(c("devtools", "roxygen2", "testthat"))
 #' boost_install_packages(my_packages = c("devtools", "roxygen2", "testthat"))
-boost_install_packages <- function(my_packages = my_packages) {
+boost_install_packages <- function(my_packages = my_packages, loaded = F) {
   sapply(my_packages, simplify = F, function(my_packages = my_packages) {
     if (!my_packages %in% rownames(installed.packages())) {
       CRANpackages <- available.packages()
@@ -107,4 +107,5 @@ boost_install_packages <- function(my_packages = my_packages) {
     }
   })
   print(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
+  if (loaded == T) sapply(my_packages, function(my_packages) library(my_packages, character.only= T, quietly = T))
 }
