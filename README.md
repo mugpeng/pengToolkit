@@ -49,7 +49,7 @@ remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
 ```
 
 # 更新记录
-gitte 地址：https://github.com/mugpeng/pengToolkit
+gitee 地址：https://gitee.com/mugpeng/pengToolkit
 
 ## 0.0.1
 初始版。
