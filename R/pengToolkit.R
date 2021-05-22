@@ -107,5 +107,8 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F) {
     }
   })
   print(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
-  if (loaded == T) sapply(my_packages, function(my_packages) library(my_packages, character.only= T, quietly = T))
+  if (loaded == T) {
+    sapply(my_packages, simplify = F, function(my_packages) library(my_packages, character.only= T, quietly = T))
+    print(paste0(paste(my_packages, collapse=", "), " are  also successfully loaded in your namespace."))
+  }
 }
