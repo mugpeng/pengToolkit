@@ -17,7 +17,7 @@
 #' make_r_template()
 #' make_r_template(project = "How to Fire My Boss.", filename = "01-preparation.R", author = "Tony", dir = getwd())
 make_r_template <- function(
-  filename = "file.R", project = "Rescue the Princess", 
+  filename = "file.R", project = "Rescue the Princess",
   author = "Peng", dir = getwd())
 {
   if (file.exists(file.path(dir, filename))) invisible(NULL)
@@ -29,6 +29,8 @@ make_r_template <- function(
             paste0("## Date: ", date()),
             paste0("## Author: ", author),
             paste0("## R_Version: ", R.version.string),
+            paste0("## R_Studio_Version: ", RStudio.Version()$version),
+            paste0("## Platform Version: ", osVersion),
             "##################################################"),
           file = file.path(dir, filename),
           sep = "\n")
