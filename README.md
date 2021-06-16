@@ -101,7 +101,7 @@ Job launched.
 We will use 2 cores for installing.
 You can set ur parallels back by: options(Ncpus = 1)
 You can set ur mirror back by: set_mirror('reset')
-jobs 选项调用job 包，可以直接调用后台安装。
-ps：关于R 包的更新，墙裂推荐大噶使用Y 叔叔的rvcheck，好用极了~
 ```
 
+jobs 选项调用job 包，可以直接调用后台安装。
+ps：关于R 包的更新，墙裂推荐大噶使用Y 叔叔的rvcheck，好用极了~
