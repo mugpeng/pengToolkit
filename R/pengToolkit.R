@@ -112,6 +112,7 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
         }
       }
     })}, packages = NULL)
+    message(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
   } else {
     sapply(my_packages, simplify = F, function(my_packages = my_packages) {
       if (!my_packages %in% rownames(installed.packages())) {
@@ -129,7 +130,6 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
     })
     message(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
   }
-  message(paste0("We will use ", Ncpus, " cores for installing."))
   if (loaded == T) {
     sapply(my_packages, simplify = F, function(my_packages) library(my_packages, character.only= T, quietly = T))
     message(paste0(paste(my_packages, collapse=", "), " are  also successfully loaded in your namespace."))
@@ -143,9 +143,13 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
     }
     else {Ncpus <- parallel::detectCores() - 1}
     options(Ncpus = Ncpus)
+    message(paste0("We will use ", Ncpus, " cores for installing."))
     message("You can set ur parallels back by: options(Ncpus = 1)")
   }
-  if (mirror == T) set_mirror(); message("You can set ur mirror back by: set_mirror('reset')")
+  if (mirror == T) {
+    set_mirror()
+    message("You can set ur mirror back by: set_mirror('reset')")
+  }
 }
 
 
