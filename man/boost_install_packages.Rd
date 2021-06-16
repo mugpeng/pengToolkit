@@ -4,10 +4,24 @@
 \alias{boost_install_packages}
 \title{receive a vector of packages and install them from cran or bioconductor}
 \usage{
-boost_install_packages(my_packages = my_packages)
+boost_install_packages(
+  my_packages = my_packages,
+  loaded = F,
+  parallels = F,
+  mirror = F,
+  jobs = F
+)
 }
 \arguments{
 \item{my_packages}{input a vector of your packages}
+
+\item{loaded}{logical}
+
+\item{parallels}{logical or numeric}
+
+\item{mirror}{logical}
+
+\item{jobs}{logical}
 }
 \value{
 information about what did the function do
@@ -18,7 +32,7 @@ today,I create my third function,a very usrful function.
 \details{
 This is some description of this function.
 
-you can use this function to download a batch of uninstalled packages from CRAN or bioconductor with judment if exists.
+you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
 }
 \examples{
 boost_install_packages(c("devtools", "roxygen2", "testthat"))

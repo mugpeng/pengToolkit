@@ -5,16 +5,16 @@
 \title{A head comment template auto-generator}
 \usage{
 make_r_template(
-  project = "Rescue the Princess",
   filename = "file.R",
+  project = "Rescue the Princess",
   author = "Peng",
   dir = getwd()
 )
 }
 \arguments{
-\item{project}{input a character type or not}
-
 \item{filename}{input a character type or not}
+
+\item{project}{input a character type or not}
 
 \item{author}{input a character type or not}
 

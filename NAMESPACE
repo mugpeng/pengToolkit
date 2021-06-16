@@ -3,3 +3,4 @@
 export(boost_install_packages)
 export(make_r_template)
 export(set_mirror)
+export(update_myself)

@@ -34,7 +34,7 @@ make_r_template <- function(
             "##################################################"),
           file = file.path(dir, filename),
           sep = "\n")
-    print(paste0("You successfully create file: ", filename))
+    message(paste0("You successfully create file: ", filename))
   }
 }
 
@@ -68,13 +68,13 @@ set_mirror <- function(loc = "China") {
     BioC <- getOption( "BioC_mirror" ); # set bioconductor mirror for users in China
     BioC[ "BioC_mirror" ] <- "https://mirrors.ustc.edu.cn/bioc/"; # mirror address of bioconductor
     options( BioC_mirror = BioC )
-    print("Now you successfully take a ladder, go ahead without any restrictions!")
+    message("Now you successfully take a mirror, go ahead without any restrictions!")
   } else if (loc == "reset") {
     options( BioC_mirror = NULL )
     options( repos = NULL )
-    print("You dropped the ladder~")
+    message("You dropped the mirror. PONG!! ")
   } else {
-    print("Don't support other regions yet. Sorry!")
+    message("Don't support other regions yet. Sorry!")
   }
 }
 
@@ -83,9 +83,13 @@ set_mirror <- function(loc = "China") {
 #'
 #' @description today,I create my third function,a very usrful function.
 #'
-#' @details you can use this function to download a batch of uninstalled packages from CRAN or bioconductor with judment if exists.
+#' @details you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
 #'
 #' @param my_packages input a vector of your packages
+#' @param loaded logical
+#' @param parallels logical or numeric
+#' @param mirror logical
+#' @param jobs logical
 #'
 #' @return information about what did the function do
 #' @keywords boost_install_packages
@@ -93,24 +97,73 @@ set_mirror <- function(loc = "China") {
 #' @examples
 #' boost_install_packages(c("devtools", "roxygen2", "testthat"))
 #' boost_install_packages(my_packages = c("devtools", "roxygen2", "testthat"))
-boost_install_packages <- function(my_packages = my_packages, loaded = F) {
-  sapply(my_packages, simplify = F, function(my_packages = my_packages) {
-    if (!my_packages %in% rownames(installed.packages())) {
-      CRANpackages <- available.packages()
-      if (my_packages %in% rownames(CRANpackages)) {
-        install.packages(my_packages)
-      } else {
-        BiocManager::install(my_packages,
-                             suppressUpdates = F,
-                             ask = F)
+boost_install_packages <- function(my_packages = my_packages, loaded = F, parallels = F, mirror = F, jobs = F) {
+  if (jobs == T) {
+    message("Now will use jobs for installing. HAPPY! console is free now!")
+    job::job({sapply(my_packages, simplify = F, function(my_packages = my_packages) {
+      if (!my_packages %in% rownames(installed.packages())) {
+        CRANpackages <- available.packages()
+        if (my_packages %in% rownames(CRANpackages)) {
+          install.packages(my_packages)
+        } else {
+          BiocManager::install(my_packages,
+                               suppressUpdates = F,
+                               ask = F)
+        }
       }
-    } else {
-      print(paste0(my_packages, " is already installed."))
-    }
-  })
-  print(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
+    })}, packages = NULL)
+  } else {
+    sapply(my_packages, simplify = F, function(my_packages = my_packages) {
+      if (!my_packages %in% rownames(installed.packages())) {
+        CRANpackages <- available.packages()
+        if (my_packages %in% rownames(CRANpackages)) {
+          install.packages(my_packages)
+        } else {
+          BiocManager::install(my_packages,
+                               suppressUpdates = F,
+                               ask = F)
+        }
+      } else {
+        message(paste0(my_packages, " is already installed."))
+      }
+    })
+    message(paste0(paste(my_packages, collapse=", "), " are already in your computer."))
+  }
+  message(paste0("We will use ", Ncpus, " cores for installing."))
   if (loaded == T) {
     sapply(my_packages, simplify = F, function(my_packages) library(my_packages, character.only= T, quietly = T))
-    print(paste0(paste(my_packages, collapse=", "), " are  also successfully loaded in your namespace."))
+    message(paste0(paste(my_packages, collapse=", "), " are  also successfully loaded in your namespace."))
   }
+  if (parallels == T) {
+    Ncpus <- parallel::detectCores()
+    if (Ncpus >= 8) {
+      Ncpus <- 8
+    } else if (class(parallels) == "numeric") {
+      Ncpus <- parallels
+    }
+    else {Ncpus <- parallel::detectCores() - 1}
+    options(Ncpus = Ncpus)
+    message("You can set ur parallels back by: options(Ncpus = 1)")
+  }
+  if (mirror == T) set_mirror(); message("You can set ur mirror back by: set_mirror('reset')")
 }
+
+
+#' This is some description of this function.
+#' @title update this package itself
+#'
+#' @description update this package from github
+#'
+#'
+#'
+#' @return nothing but love
+#' @keywords set_mirror
+#' @export
+#' @examples
+#' update_myself()
+
+update_myself <- function() {
+  message("upgrading this package from github mugpeng/pengToolkit")
+  devtools::install_github("mugpeng/pengToolkit")
+}
+
