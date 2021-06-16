@@ -77,4 +77,31 @@ set_mirror("reset") # 当你无需镜像之时，可以恢复默认设置
 Warning message:
 package ‘ggsci’ was built under R version 4.0.5 
 ```
-ps：很神奇，为什么在apply 族函数后用一个print，就可以抑制前者的默认输出呢？
+
+## 0.0.5
+- 增加新的函数update_myself：
+可以随时随地获得最新稳定版的这个包。
+来源是github。
+
+```
+> update_myself()
+upgrading this package from github mugpeng/pengToolkit
+Downloading GitHub repo mugpeng/pengToolkit@HEAD
+These packages have more recent versions available.
+It is recommended to update all of them.
+```
+
+- 更新boost_install_packages，支持后台下载选项，支持多线程选项，支持镜像下载，修改输出信息内容。
+
+```
+> boost_install_packages("viridis", mirror = T, parallels = 2, jobs = T)
+Now you successfully take a mirror, go ahead without any restrictions!
+Now will use jobs for installing. HAPPY! console is free now!
+Job launched.                                                                      
+We will use 2 cores for installing.
+You can set ur parallels back by: options(Ncpus = 1)
+You can set ur mirror back by: set_mirror('reset')
+jobs 选项调用job 包，可以直接调用后台安装。
+ps：关于R 包的更新，墙裂推荐大噶使用Y 叔叔的rvcheck，好用极了~
+```
+
