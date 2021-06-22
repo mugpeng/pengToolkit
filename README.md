@@ -120,4 +120,21 @@ We will use 3 cores for installing.
 ```
 
 - 增加了函数add_function
+可以直接添加函数到 ./my_function.R（需要将函数名改为字符串形式） 脚本内，解决主脚本因为函数定义而显得臃肿。
 
+比如添加事先定义好的两个函数：
+```
+> add_function("test001", "test002")
+Now you can find your functions in : ./my_function.R
+```
+
+再打开 ./my_function.R：
+```
+test001 <-function(x) {
+  x + 1
+}
+test002 <-function(x) {
+  x + 1
+}
+
+```

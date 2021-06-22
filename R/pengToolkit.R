@@ -179,7 +179,11 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
 
 update_myself <- function() {
   message("upgrading this package from github mugpeng/pengToolkit")
+  if (grepl("pengToolkit",(.packages())) == T) {
+    detach("package:pengToolkit")
+  }
   devtools::install_github("mugpeng/pengToolkit")
+  library(pengToolkit)
 }
 
 #' @title add funtions that you want to store them in a function.R file
@@ -200,6 +204,7 @@ update_myself <- function() {
 #' add_function(source_fun = T)
 
 add_function <- function(..., source_fun = F) {
+  file.create("./my_function.R")
   if (source_fun == F) {
     var_args <- list(...)
     x <- var_args[[1]]
@@ -223,5 +228,3 @@ add_function <- function(..., source_fun = F) {
     message("Your functions are in environment now.")
   }
 }
-
-add_function(source_fun = T)
