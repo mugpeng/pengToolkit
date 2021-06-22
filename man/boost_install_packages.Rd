@@ -27,11 +27,9 @@ boost_install_packages(
 information about what did the function do
 }
 \description{
-today,I create my third function,a very usrful function.
+today,I create my third function,a very useful function.
 }
 \details{
-This is some description of this function.
-
 you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
 }
 \examples{

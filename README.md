@@ -105,3 +105,19 @@ You can set ur mirror back by: set_mirror('reset')
 
 jobs 选项调用job 包，可以直接调用后台安装。
 ps：关于R 包的更新，墙裂推荐大噶使用Y 叔叔的rvcheck，好用极了~
+
+## 0.0.6 
+- 更新boost_install_packages 函数
+修改了parallels 参数bug，并且设置了parallels 参数可以自定义的阈值上限，
+最多只允许调用8个核心来安装包。
+
+```
+> boost_install_packages("paletteer", parallels = 100)
+paletteer is already installed.
+paletteer are already in your computer.
+You think too high to your cpu, I will set it to a safe number.
+We will use 3 cores for installing.
+```
+
+- 增加了函数add_function
+

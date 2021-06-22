@@ -78,10 +78,9 @@ set_mirror <- function(loc = "China") {
   }
 }
 
-#' This is some description of this function.
 #' @title receive a vector of packages and install them from cran or bioconductor
 #'
-#' @description today,I create my third function,a very usrful function.
+#' @description today,I create my third function,a very useful function.
 #'
 #' @details you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
 #'
@@ -138,13 +137,25 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
     Ncpus <- parallel::detectCores()
     if (Ncpus >= 8) {
       Ncpus <- 8
-    } else if (class(parallels) == "numeric") {
-      Ncpus <- parallels
     }
     else {Ncpus <- parallel::detectCores() - 1}
     options(Ncpus = Ncpus)
     message(paste0("We will use ", Ncpus, " cores for installing."))
     message("You can set ur parallels back by: options(Ncpus = 1)")
+  } else if (class(parallels) == "numeric") {
+    max_cpu <- parallel::detectCores()
+    Ncpus <- parallels
+    if (Ncpus >= max_cpu) {
+      Ncpus <- max_cpu - 1
+      if (Ncpus >= 8) {
+        Ncpus <- 8
+      }
+      message("You think too high to your cpu, I will set it to a safe number.")
+    } else if (Ncpus >= 8) {
+      Ncpus <- 8
+      message("I think there is no need for you to recruit so many cpus.")
+    }
+    message(paste0("We will use ", Ncpus, " cores for installing."))
   }
   if (mirror == T) {
     set_mirror()
@@ -171,3 +182,46 @@ update_myself <- function() {
   devtools::install_github("mugpeng/pengToolkit")
 }
 
+#' @title add funtions that you want to store them in a function.R file
+#'
+#' @description today,I create my fourth function,a very useful function.
+#'
+#' @details you can use this function to receive any funtions that you want to store them in a function.R file
+#' and source them automatically into your environment.
+#'
+#' @param virable param my_functions input any functions that you want to
+#'
+#'
+#' @return information about what did the function do
+#' @keywords add_function
+#' @export
+#' @examples
+#' add_function("test001", "test002")
+#' add_function(source_fun = T)
+
+add_function <- function(..., source_fun = F) {
+  if (source_fun == F) {
+    var_args <- list(...)
+    x <- var_args[[1]]
+    var_args[1] <- NULL
+    sink(file = "./my_function.R")
+    cat(paste0(x, " <-"))
+    tmp <- get(x)
+    print(tmp)
+    sink()
+    for (i in var_args) {
+      sink(file = "./my_function.R", append = T)
+      cat(paste0(i, " <-"))
+      tmp <- get(i)
+      print(tmp)
+      sink()
+    }
+    message("Now you can find your functions in : ./my_function.R")
+  }
+  else {
+    source("./my_function.R")
+    message("Your functions are in environment now.")
+  }
+}
+
+add_function(source_fun = T)

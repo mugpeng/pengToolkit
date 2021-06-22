@@ -1,9 +1,9 @@
 Package: pengToolkit
 Title: Some useful functions developed by that man.
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: "Mug Peng <mugpeng@foxmail.com> [aut, cre]"
 Description: Some useful functions developed by that man.
-Depends: R (>= 3.1.1)
+Depends: R (>= 3.6.0)
 License: GPL-2
 Encoding: UTF-8
 LazyData: false
