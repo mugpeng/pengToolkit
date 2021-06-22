@@ -179,7 +179,7 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
 
 update_myself <- function() {
   message("upgrading this package from github mugpeng/pengToolkit")
-  if (grepl("pengToolkit",(.packages())) == T) {
+  if (grepl("pengToolkit", paste((.packages()), collapse = ", ")) == T) {
     detach("package:pengToolkit")
   }
   devtools::install_github("mugpeng/pengToolkit")
