@@ -36,6 +36,7 @@ make_r_template <- function(
           sep = "\n")
     message(paste0("You successfully create file: ", filename))
   }
+  file.edit(file.path(dir, filename))
 }
 
 #' This is some description of this function.
@@ -139,9 +140,6 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
       Ncpus <- 8
     }
     else {Ncpus <- parallel::detectCores() - 1}
-    options(Ncpus = Ncpus)
-    message(paste0("We will use ", Ncpus, " cores for installing."))
-    message("You can set ur parallels back by: options(Ncpus = 1)")
   } else if (class(parallels) == "numeric") {
     max_cpu <- parallel::detectCores()
     Ncpus <- parallels
@@ -155,7 +153,9 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
       Ncpus <- 8
       message("I think there is no need for you to recruit so many cpus.")
     }
+    options(Ncpus = Ncpus)
     message(paste0("We will use ", Ncpus, " cores for installing."))
+    message("You can set ur parallels back by: options(Ncpus = 1)")
   }
   if (mirror == T) {
     set_mirror()
@@ -204,7 +204,7 @@ update_myself <- function() {
 #' add_function(source_fun = T)
 
 add_function <- function(..., source_fun = F) {
-  file.create("./my_function.R")
+  if (!file.exists("./my_function.R")) file.create("./my_function.R")
   if (source_fun == F) {
     var_args <- list(...)
     x <- var_args[[1]]
@@ -227,4 +227,26 @@ add_function <- function(..., source_fun = F) {
     source("./my_function.R")
     message("Your functions are in environment now.")
   }
+}
+
+#' @title select a element in vector
+#'
+#' @description today,I create my fifth function,a very useful function.
+#'
+#' @details Like select, you can use this funtion to choose the intersection or exception
+#' between 2 vector.
+#'
+#' @param vector x and y
+#' @param logical except
+#'
+#'
+#' @return intersection or exception
+#' @keywords p_select
+#' @export
+#' @examples
+#' p_select <- function(1:100, 10)
+
+p_select <- function(x, y, except = T) {
+  if(except) return(x[!grepl(paste0("^", y,"$"), x)])
+  else return(x[grepl(paste0("^", y,"$"), x)])
 }

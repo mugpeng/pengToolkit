@@ -142,3 +142,15 @@ test002 <-function(x) {
 ## 0.0.7
 
 更新update_myself，解决因为环境中加载pengToolkit 而无法更新报错。
+
+
+
+## 0.0.8
+
+- 新增函数p_select，专门用于处理向量，reverse 参数取反。
+
+- 修改函数make_r_template :
+创建文件后会直接打开。
+
+
+
