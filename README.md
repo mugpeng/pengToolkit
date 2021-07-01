@@ -152,5 +152,9 @@ test002 <-function(x) {
 - 修改函数make_r_template :
 创建文件后会直接打开。
 
+## 0.0.9
+- 删除p_select，直接setdiff 不就好了？
+
+- 解决无法加载帮助文档的bug
 
 

@@ -228,25 +228,3 @@ add_function <- function(..., source_fun = F) {
     message("Your functions are in environment now.")
   }
 }
-
-#' @title select a element in vector
-#'
-#' @description today,I create my fifth function,a very useful function.
-#'
-#' @details Like select, you can use this funtion to choose the intersection or exception
-#' between 2 vector.
-#'
-#' @param vector x and y
-#' @param logical except
-#'
-#'
-#' @return intersection or exception
-#' @keywords p_select
-#' @export
-#' @examples
-#' p_select <- function(1:100, 10)
-
-p_select <- function(x, y, except = T) {
-  if(except) return(x[!grepl(paste0("^", y,"$"), x)])
-  else return(x[grepl(paste0("^", y,"$"), x)])
-}
