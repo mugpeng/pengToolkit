@@ -3,6 +3,5 @@
 export(add_function)
 export(boost_install_packages)
 export(make_r_template)
-export(p_select)
 export(set_mirror)
 export(update_myself)
