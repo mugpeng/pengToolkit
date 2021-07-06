@@ -1,7 +1,12 @@
-# pengToolkit
+# pengToolkit<img src="https://cdn.jsdelivr.net/gh/mugpeng/3-source/2.img/peng_new_logo.png" align="right" width="150" />
  My useful R package.
 
+
+
+
+
 ## 功能介绍
+
 一共三个函数：
 
 ```
@@ -157,4 +162,17 @@ test002 <-function(x) {
 
 - 解决无法加载帮助文档的bug
 
+## 0.1.0
+终于到第一个小1.0 了，迎来了一次大更新！！！
+
+- mirror 独立内容
+一共三个函数。
+受启发于yikeshu和Y叔。
+
+
+- 更新了update_myself
+现在可以选择从gitee 上更新。
+
+- 小修 make_r_template
+新创建的名称进行了修改。
 
