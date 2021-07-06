@@ -1,7 +1,15 @@
 # pengToolkit<img src="https://cdn.jsdelivr.net/gh/mugpeng/3-source/2.img/peng_new_logo.png" align="right" width="150" />
- My useful R package.
+ [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+[![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
 
 
+
+My useful R package.
+
+
+
+gitee 地址：https://gitee.com/mugpeng/pengToolkit
 
 
 
@@ -54,8 +62,6 @@ remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
 ```
 
 # 更新记录
-gitee 地址：https://gitee.com/mugpeng/pengToolkit
-
 ## 0.0.1
 初始版。
 
@@ -175,4 +181,6 @@ test002 <-function(x) {
 
 - 小修 make_r_template
 新创建的名称进行了修改。
+
+- 创建专门的绘图主题语法
 
