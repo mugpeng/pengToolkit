@@ -1,5 +1,5 @@
 # pengToolkit<img src="https://cdn.jsdelivr.net/gh/mugpeng/3-source/2.img/peng_new_logo.png" align="right" width="150" />
-[![pengToolkit](https://img.shields.io/badge/pengToolkit-Peng-blue.svg)](https://github.com/mugpeng/pengToolkit) [![version](https://img.shields.io/badge/version-v0.9.0-orange.svg)](https://github.com/mugpeng/pengToolkit) [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![pengToolkit](https://img.shields.io/badge/pengToolkit-Peng-blue.svg)](https://github.com/mugpeng/pengToolkit) [![version](https://img.shields.io/badge/version-v0.0.9-orange.svg)](https://github.com/mugpeng/pengToolkit) [![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![github_stars](https://img.shields.io/github/stars/mugpeng/pengToolkit?style=social)
 
 
 
@@ -13,7 +13,7 @@ gitee 地址：https://gitee.com/mugpeng/pengToolkit
 
 ## 功能介绍
 
-一共三个函数：
+一共五个函数：
 
 ```
 pengToolkit::
@@ -41,6 +41,10 @@ pengToolkit::boost_install_packages(c("ggplot2", "devtools"))
 [1] "ggplot2 devtools are already in your computer."
 ```
 
+现在还支持多线程、后台、开启镜像下载。
+
+
+
 - set_mirror
 自动将镜像配置，cran 对应清华源，bioconductor 对应中科大。
 ```
@@ -48,7 +52,37 @@ set_mirror() # 参数"China" 可有可无
 set_mirror("reset") # 当你无需镜像之时，可以恢复默认设置
 ```
 
+- add_function
+
+可以直接添加函数到 ./my_function.R（需要将函数名改为字符串形式） 脚本内，解决主脚本因为函数定义而显得臃肿。
+
+比如添加事先定义好的两个函数：
+
+```
+> add_function("test001", "test002")
+Now you can find your functions in : ./my_function.R
+```
+
+再打开 ./my_function.R：
+
+```
+test001 <-function(x) {
+  x + 1
+}
+test002 <-function(x) {
+  x + 1
+}
+
+```
+
+
+
+
+
+
+
 ## 安装
+
 境内用户，可以用下面的链接：
 ```
 #安装官方包‘remotes’
