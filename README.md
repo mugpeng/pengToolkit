@@ -9,6 +9,38 @@ My useful R package.
 
 gitee 地址：https://gitee.com/mugpeng/pengToolkit
 
+## 安装
+
+github 安装：
+
+```
+# install devtools
+install.packages("devtools")
+
+devtools::install_github("mugpeng/pengToolkit")
+```
+
+
+
+- 境内用户
+
+```
+#安装官方包‘remotes’
+install.packages("remotes")
+#安装官方包‘git2r’
+install.packages("git2r")
+
+remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
+```
+
+
+
+下载打包后本地安装：
+
+```
+install.packages("/dir2file/pengToolkit-main", repos = NULL, type = "source")
+```
+
 
 
 ## 功能介绍
@@ -84,14 +116,6 @@ test002 <-function(x) {
 ## 安装
 
 境内用户，可以用下面的链接：
-```
-#安装官方包‘remotes’
-install.packages("remotes")
-#安装官方包‘git2r’
-install.packages("git2r")
-
-remotes::install_git("https://gitee.com/mugpeng/pengToolkit.git")
-```
 
 # 更新记录
 ## 0.0.1
@@ -199,5 +223,4 @@ test002 <-function(x) {
 - 删除p_select，直接setdiff 不就好了？
 
 - 解决无法加载帮助文档的bug
-
 
