@@ -16,50 +16,9 @@ information about what did the function do
 today,I create my fourth function,a very useful function.
 }
 \details{
-#' This is some description of this function.
-#' @title update this package itself
-#'
-#' @description update this package from github
-#'
-#'
-#'
-#' @return nothing but love
-#' @keywords set_mirror
-#' @export
-#' @examples
-#' update_myself()
-}
-\section{update_myself <- function() {}{
-
-}
-
-\section{message("upgrading this package from github mugpeng/pengToolkit")}{
-
-}
-
-\section{if (grepl("pengToolkit", paste((.packages()), collapse = ", ")) == T) {}{
-
-}
-
-\section{detach("package:pengToolkit")}{
-
-}
-
-\section{}}{
-
-
 you can use this function to receive any funtions that you want to store them in a function.R file
 and source them automatically into your environment.
 }
-
-\section{devtools::install_github("mugpeng/pengToolkit")}{
-
-}
-
-\section{library(pengToolkit)}{
-
-}
-
 \examples{
 add_function("test001", "test002")
 add_function(source_fun = T)
