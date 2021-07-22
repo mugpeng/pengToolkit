@@ -164,27 +164,27 @@ boost_install_packages <- function(my_packages = my_packages, loaded = F, parall
 }
 
 
-#' This is some description of this function.
-#' @title update this package itself
+#' #' This is some description of this function.
+#' #' @title update this package itself
+#' #'
+#' #' @description update this package from github
+#' #'
+#' #'
+#' #'
+#' #' @return nothing but love
+#' #' @keywords set_mirror
+#' #' @export
+#' #' @examples
+#' #' update_myself()
 #'
-#' @description update this package from github
-#'
-#'
-#'
-#' @return nothing but love
-#' @keywords set_mirror
-#' @export
-#' @examples
-#' update_myself()
-
-update_myself <- function() {
-  message("upgrading this package from github mugpeng/pengToolkit")
-  if (grepl("pengToolkit", paste((.packages()), collapse = ", ")) == T) {
-    detach("package:pengToolkit")
-  }
-  devtools::install_github("mugpeng/pengToolkit")
-  library(pengToolkit)
-}
+#' # update_myself <- function() {
+#' #   message("upgrading this package from github mugpeng/pengToolkit")
+#' #   if (grepl("pengToolkit", paste((.packages()), collapse = ", ")) == T) {
+#' #     detach("package:pengToolkit")
+#' #   }
+#' #   devtools::install_github("mugpeng/pengToolkit")
+#' #   library(pengToolkit)
+#' # }
 
 #' @title add funtions that you want to store them in a function.R file
 #'
