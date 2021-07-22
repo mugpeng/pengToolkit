@@ -221,6 +221,6 @@ test002 <-function(x) {
 
 ## 0.0.9
 - 删除p_select，直接setdiff 不就好了？
-
 - 解决无法加载帮助文档的bug
+- 将cran 镜像替换为中科大
 

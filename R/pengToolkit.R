@@ -63,7 +63,7 @@ set_mirror <- function(loc = "China") {
     options( repos = NULL )
 
     r <- getOption( "repos" );# set CRAN mirror for users in China
-    r[ "CRAN" ] <- "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"; # mirror address of cran
+    r[ "CRAN" ] <- "https://mirrors.ustc.edu.cn/CRAN/"; # mirror address of cran
     # r <- r[-which(names(r) == "CRANextra")]
     options( repos = r )
     BioC <- getOption( "BioC_mirror" ); # set bioconductor mirror for users in China
