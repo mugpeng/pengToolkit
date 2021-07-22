@@ -223,4 +223,4 @@ test002 <-function(x) {
 - 删除p_select，直接setdiff 不就好了？
 - 解决无法加载帮助文档的bug
 - 将cran 镜像替换为中科大
-
+- 删除update_myself 方法
