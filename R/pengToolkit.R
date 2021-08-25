@@ -1,7 +1,7 @@
 #' This is some description of this function.
-#' @title A head comment template auto-generator
+#' @title make_r_template
 #'
-#' @description today,I create my first function,a very usrful function.
+#' @description A head comment template auto-generator
 #'
 #' @details you can use this function to create your header in the script.
 #'
@@ -18,7 +18,7 @@
 #' make_r_template(project = "How to Fire My Boss.", filename = "01-preparation.R", author = "Tony", dir = getwd())
 make_r_template <- function(
   filename = "file.R", project = "Rescue the Princess",
-  author = "Peng", dir = getwd())
+  author = "Peng", email = "mugpeng@foxmail.com", dir = getwd())
 {
   if (file.exists(file.path(dir, filename))) invisible(NULL)
   else{
@@ -28,6 +28,7 @@ make_r_template <- function(
             paste0("## File name: ", filename),
             paste0("## Date: ", date()),
             paste0("## Author: ", author),
+            paste0("## Email: ", email),
             paste0("## R_Version: ", R.version.string),
             paste0("## R_Studio_Version: ", RStudio.Version()$version),
             paste0("## Platform Version: ", osVersion),
@@ -40,9 +41,9 @@ make_r_template <- function(
 }
 
 #' This is some description of this function.
-#' @title set-up mirror in China
+#' @title set_mirror
 #'
-#' @description today,I create my second function,a very usrful function.
+#' @description set-up mirror in China
 #'
 #' @details you can use this function to change ur cran&&bioconductor mirrors if you are in China.
 #'
@@ -79,9 +80,9 @@ set_mirror <- function(loc = "China") {
   }
 }
 
-#' @title receive a vector of packages and install them from cran or bioconductor
+#' @title boost_install_packages
 #'
-#' @description today,I create my third function,a very useful function.
+#' @description receive a vector of packages and install them from cran or bioconductor
 #'
 #' @details you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
 #'
@@ -205,4 +206,34 @@ add_function <- function(..., source_fun = F) {
     source("./my_function.R")
     message("Your functions are in environment now.")
   }
+}
+
+#' @title add_function
+#'
+#' @description output packages version info
+#'
+#' @details you can use this function to receive a vector contained packages used
+#' in your program.
+#'
+#' @param vector contains package names used
+#'
+#'
+#' @return data.frame contain packages version info
+#' @export
+#' @examples
+#' check_packages_version(c("maftools", "sad"))
+
+check_packages_version <- function(packages = packages) {
+  tmp <- as.data.frame(installed.packages())
+  my_packages <- packages[packages %in% tmp$Package]
+  unexist_packages <- packages[!packages %in% tmp$Package]
+  result <- lapply(my_packages, function(x) {
+    version_info <- tmp[tmp$Package == x, c("Version", "Depends", "Built")]
+    data.frame(packages = x, versions = version_info)
+  })
+  result <- do.call("rbind", result)
+  if (length(result) >= 1) {
+    message(sprintf("%s is/are not installed or existed in your computer.", unexist_packages))
+  }
+  return(result)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pengToolkit.R
 \name{set_mirror}
 \alias{set_mirror}
-\title{set-up mirror in China}
+\title{set_mirror}
 \usage{
 set_mirror(loc = "China")
 }
@@ -13,7 +13,7 @@ set_mirror(loc = "China")
 nothing but love
 }
 \description{
-today,I create my second function,a very usrful function.
+set-up mirror in China
 }
 \details{
 This is some description of this function.

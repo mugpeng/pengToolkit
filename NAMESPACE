@@ -2,5 +2,6 @@
 
 export(add_function)
 export(boost_install_packages)
+export(check_packages_version)
 export(make_r_template)
 export(set_mirror)

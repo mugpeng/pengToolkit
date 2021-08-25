@@ -2,12 +2,13 @@
 % Please edit documentation in R/pengToolkit.R
 \name{make_r_template}
 \alias{make_r_template}
-\title{A head comment template auto-generator}
+\title{make_r_template}
 \usage{
 make_r_template(
   filename = "file.R",
   project = "Rescue the Princess",
   author = "Peng",
+  email = "mugpeng@foxmail.com",
   dir = getwd()
 )
 }
@@ -24,7 +25,7 @@ make_r_template(
 file a new file with designed header
 }
 \description{
-today,I create my first function,a very usrful function.
+A head comment template auto-generator
 }
 \details{
 This is some description of this function.

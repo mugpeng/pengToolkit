@@ -2,7 +2,7 @@
 % Please edit documentation in R/pengToolkit.R
 \name{boost_install_packages}
 \alias{boost_install_packages}
-\title{receive a vector of packages and install them from cran or bioconductor}
+\title{boost_install_packages}
 \usage{
 boost_install_packages(
   my_packages = my_packages,
@@ -27,7 +27,7 @@ boost_install_packages(
 information about what did the function do
 }
 \description{
-today,I create my third function,a very useful function.
+receive a vector of packages and install them from cran or bioconductor
 }
 \details{
 you can use this function to download a batch of uninstalled packages from CRAN or bioconductor and stop if exists.
